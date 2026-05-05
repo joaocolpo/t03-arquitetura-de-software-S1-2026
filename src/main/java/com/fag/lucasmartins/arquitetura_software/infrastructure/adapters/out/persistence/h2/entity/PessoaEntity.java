@@ -1,20 +1,15 @@
 package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.out.persistence.h2.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_pessoa")
 public class PessoaEntity {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(updatable = false, nullable = false)
-    private UUID id;
+    private Integer id;
 
     private String nomeCompleto;
 
@@ -26,11 +21,14 @@ public class PessoaEntity {
 
     private String telefone;
 
-    public UUID getId() {
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PedidoEntity> pedidos;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -72,5 +70,13 @@ public class PessoaEntity {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public List<PedidoEntity> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<PedidoEntity> pedidos) {
+        this.pedidos = pedidos;
     }
 }

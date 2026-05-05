@@ -1,22 +1,26 @@
 package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.rest.dto;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class PessoaDTO {
 
-    private UUID id;
+    private Integer id;
+
     private String nomeCompleto;
+
     private String cpf;
+
     private LocalDate dataNascimento;
+
     private String email;
+
     private String telefone;
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

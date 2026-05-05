@@ -8,27 +8,25 @@ public class PessoaMapper {
     private PessoaMapper() {
     }
 
-    public static PessoaEntity toEntity(PessoaBO pessoaBO) {
-        PessoaEntity pessoaEntity = new PessoaEntity();
-        pessoaEntity.setId(pessoaBO.getId());
-        pessoaEntity.setNomeCompleto(pessoaBO.getNomeCompleto());
-        pessoaEntity.setCpf(pessoaBO.getCpf());
-        pessoaEntity.setDataNascimento(pessoaBO.getDataNascimento());
-        pessoaEntity.setEmail(pessoaBO.getEmail());
-        pessoaEntity.setTelefone(pessoaBO.getTelefone());
-
-        return pessoaEntity;
+    public static PessoaEntity toEntity(PessoaBO bo) {
+        PessoaEntity entity = new PessoaEntity();
+        entity.setId(bo.getId());
+        entity.setNomeCompleto(bo.getNomeCompleto());
+        entity.setCpf(bo.getCpf());
+        entity.setDataNascimento(bo.getDataNascimento());
+        entity.setEmail(bo.getEmail());
+        entity.setTelefone(bo.getTelefone());
+        return entity;
     }
 
-    public static PessoaBO toBO(PessoaEntity pessoaEntity) {
-        PessoaBO pessoaBO = new PessoaBO();
-        pessoaBO.setId(pessoaEntity.getId());
-        pessoaBO.setNomeCompleto(pessoaEntity.getNomeCompleto());
-        pessoaBO.setCpf(pessoaEntity.getCpf());
-        pessoaBO.setDataNascimento(pessoaEntity.getDataNascimento());
-        pessoaBO.setEmail(pessoaEntity.getEmail());
-        pessoaBO.setTelefone(pessoaEntity.getTelefone());
-
-        return pessoaBO;
+    public static PessoaBO toBO(PessoaEntity entity) {
+        PessoaBO bo = new PessoaBO();
+        bo.setId(entity.getId());
+        bo.setNomeCompleto(entity.getNomeCompleto());
+        bo.setCpf(entity.getCpf());
+        bo.setDataNascimento(entity.getDataNascimento());
+        bo.setEmail(entity.getEmail());
+        bo.setTelefone(entity.getTelefone());
+        return bo;
     }
 }

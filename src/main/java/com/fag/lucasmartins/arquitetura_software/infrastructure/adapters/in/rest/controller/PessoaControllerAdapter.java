@@ -21,13 +21,12 @@ public class PessoaControllerAdapter {
     }
 
     @PostMapping
-    public ResponseEntity<PessoaDTO> cadastrarPessoa(@RequestBody PessoaDTO pessoaDTO) {
-        PessoaBO pessoaBO = PessoaDTOMapper.toBo(pessoaDTO);
+    public ResponseEntity<PessoaDTO> cadastrarPessoa(@RequestBody PessoaDTO requestDTO) {
+        PessoaBO bo = PessoaDTOMapper.toBo(requestDTO);
 
-        PessoaBO pessoaCriadaBo = pessoaServicePort.salvar(pessoaBO);
+        PessoaBO pessoaCriada = pessoaServicePort.salvar(bo);
 
-        PessoaDTO pessoaCriadaDTO = PessoaDTOMapper.toDto(pessoaCriadaBo);
-
-        return ResponseEntity.status(201).body(pessoaCriadaDTO);
+        PessoaDTO responseDTO = PessoaDTOMapper.toDto(pessoaCriada);
+        return ResponseEntity.status(201).body(responseDTO);
     }
 }
